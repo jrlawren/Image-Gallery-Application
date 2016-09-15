@@ -14,6 +14,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.cmu.iccb.services.ImageService;
 
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
+import org.springframework.web.bind.annotation.CookieValue;
+import java.util.Arrays;
+
 @Controller
 public class HomeController {
 	
@@ -52,9 +58,21 @@ public class HomeController {
         return "redirect:/images";
     }
 
-    
     @RequestMapping(method = RequestMethod.GET, value = "/")
     public String loginForm(Model model, RedirectAttributes redirectAttributes) {   
-        return "login";
+        return "loginForm";
     }
+    
+    @RequestMapping(method = RequestMethod.GET, value = "/login")
+    public String githubLoginSuccess(RedirectAttributes redirectAttributes,
+                           @CookieValue(value = "JSESSIONID") String accessToken) {
+        
+        PreAuthenticatedAuthenticationToken auth = 
+                new PreAuthenticatedAuthenticationToken("github", accessToken, Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")));
+            
+        SecurityContextHolder.getContext().setAuthentication(auth);
+              
+        return "redirect:/images";
+    }
+    
 }
