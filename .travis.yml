@@ -6,3 +6,4 @@
    api: https://api.run.pivotal.io
    organization: myawesomeorganization
    space: staging
+   sudo: required
