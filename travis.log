@@ -1,5 +1,5 @@
 Command line:
-"travis setup cloudfoundry"
+"travis encrypt --add deploy.password"
 
 
    ________                                 __
@@ -26,7 +26,7 @@ Command line:
 
      There is absolutely no warranty on any results obtained from TRAVIS.
 
-  #  Running on Inspiron-7559 at Wed Oct  5 15:30:52 2016 (PID 4019).
+  #  Running on Inspiron-7559 at Wed Oct  5 15:52:26 2016 (PID 5135).
   #  Running in /media/joshua/7CFE-5BE9/Carnegie Mellon/F16 Courses/Cloud/Assignments/HW2/Image-Gallery-Application
   #  Source code version: Nov 07 2015.
   #  Compiled at Nov 17 2015 23:12:21.
@@ -40,10 +40,9 @@ Command line:
 
  >>> Please use a color scheme with dark background or specify "-nocolor"! <<<
 
-    No configuration file found.
-    Writing default configuration to /home/joshua/.travis.conf ...
+    Loading configuration from /home/joshua/.travis.conf ...
 
-Unknown parameter: "setup".
+Unknown parameter: "encrypt".
 
     List of supported command line options:
 
